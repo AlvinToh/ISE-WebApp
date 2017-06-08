@@ -4,28 +4,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>IS102 Web Platform</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="style/css/bootstrap.min.css">
+<link rel="stylesheet" href="style/css/font-awesome.min.css">
+
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="login.jsp">IS102</a>
-			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">CATBot Login Page </a></</li>
-
-
-				</ul>
-			</div>
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarTogglerDemo01"
+			aria-controls="navbarTogglerDemo01" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand" href="#">IS102</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active"><a class="nav-link"
+					href="login.jsp">CAT BOT<span class="sr-only">(current)</span>
+				</a></li>
+			</ul>
 		</div>
 	</nav>
 	<%
@@ -41,41 +39,58 @@
 		out.println("</div>");
 		out.println("</div>");
 	%>
-	<div class="container" style="width: 400px">
-		<table style="width: 100%; height: 40%">
-			<tr>
-				<td valign="middle"><form action="Authenticate" method="post"
-						class="col-md-12">
-						<div class="input-group margin-bottom-sm">
-							<span class="input-group-addon"><i
-								class="fa fa-envelope-o fa-fw"></i></span> <input class="form-control"
-								type="text" placeholder="email address" required=""
-								name="emailID">
+	<div style="margin-top: 2%"></div>
+	<div class="container text-center">
+		<header>
+			<h2>Login with SMU Email Account</h2>
+			<hr>
+		</header>
+		<form class="form-horizontal" role="form" method="POST"
+			action="/login">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="form-group">
+					<!-- sr only means should be shown to readers of similiar devices -->
+					<label class="sr-only" for="email">User ID</label>
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<div class="input-group-addon" style="width: 2.6rem">
+							<i class="fa fa-envelope-o"></i>
 						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-							<input class="form-control" type="password" required=""
-								placeholder="password" name="password">
+						<input type="text" name="userID" class="form-control" id="userID"
+							placeholder="Insert your email" required autofocus size="34">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="form-group">
+					<!-- sr only means should be shown to readers of similar devices -->
+					<label class="sr-only" for="email">User ID</label>
+					<!-- setting margin bottom and margin right for user id -->
+					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+						<!-- importing fonts awesome into login page -->
+						<div class="input-group-addon" style="width: 2.6rem">
+							<i class="fa fa-key"></i>
 						</div>
-						<div style="line-height: 80%;">
-							<br>
-						</div>
-						<div class="form-group">
-							<table style="width: 100%; height: 40%">
-								<tr>
-									<th><button class="btn btn-primary btn-lg btn-block">Sign
-											In</button>
-									<th><span style="padding-left: 10px">
-											<th><button class="btn btn-primary btn-lg btn-block">Forgot
-													Password</button>
-										<th>
-										<tr>
-												</div>
-												</form>
-												</td>
-											</tr>
-							</table>
+						<input type="password" name="password" class="form-control"
+							id="password" placeholder="Insert your password" required
+							autofocus size="34">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<button type="submit" class="btn btn-success">
+					<i class="fa fa-sign-in"></i>Login
+				</button>
+				<a class="btn btn" href="/passwordRecovery"><i
+					class="fa fa-unlock"></i>Forget Password?
+				</a>
+			</div>
+		</form>
+	</div>
 
-						</div>
+<script src="style/js/bootstrap.min.js"></script>
+<script src="style/js/jquery-3.2.1.min.js"></script>
 </body>
 </html>
