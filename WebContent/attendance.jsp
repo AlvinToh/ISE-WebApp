@@ -36,12 +36,13 @@
 		</div>
 	</nav>
 
-	<div class="card">
+	<div class="card card-outline-info mb-3 text-center">
 		<div class="card-block">
-		<h4 class="card-title">QR code valid for XX:minutes</h4>
+			<h4 class="card-title">QR code valid for XX:minutes</h4>
 			<img src="images/TestQRCode.png" class="rounded mx-auto d-block"
 				alt="QR Code" width="25%">
 		</div>
+	</div>
 	</div>
 
 	<script src="style/js/jquery-3.2.1.min.js"></script>
