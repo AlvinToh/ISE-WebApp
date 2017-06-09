@@ -45,12 +45,11 @@
 			<h2>Login with SMU Email Account</h2>
 			<hr>
 		</header>
-		<form class="form-horizontal" role="form" method="POST"
-			action="/login">
+		<form class="form-horizontal" role="form" method="POST" action="/login">
 			<div class="row">
 				<div class="col-md-4"></div>
 				<div class="form-group">
-					<!-- sr only means should be shown to readers of similiar devices -->
+					<!-- sr only means should be shown to readers of similar devices -->
 					<label class="sr-only" for="email">User ID</label>
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
 						<div class="input-group-addon" style="width: 2.6rem">
