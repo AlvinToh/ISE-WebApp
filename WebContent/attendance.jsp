@@ -21,11 +21,13 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<a class="navbar-brand" href="#">IS102</a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link"
-					href="#">Attendance<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="#">Attendance<span
+						class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Preset Questions</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Request Form</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Preset
+						Questions</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Request
+						Form</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Consultation</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Forum</a></li>
@@ -33,16 +35,17 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 	<div class="card">
-    <h3 class="card-header primary-color white-text">QR code valid for XX:minutes</h3>
-    <div class="card-block">
-        <img src="images/TestQRCode.png" class="rounded mx-auto d-block" alt="QR Code" width="25%">
-    </div>
+		<div class="card-block">
+		<h4 class="card-title">QR code valid for XX:minutes</h4>
+			<img src="images/TestQRCode.png" class="rounded mx-auto d-block"
+				alt="QR Code" width="25%">
+		</div>
 	</div>
-	
-<script src="style/js/jquery-3.2.1.min.js"></script>
-<script src="style/js/bootstrap.min.js"></script>
+
+	<script src="style/js/jquery-3.2.1.min.js"></script>
+	<script src="style/js/bootstrap.min.js"></script>
 
 </body>
 </html>
