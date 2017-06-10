@@ -45,7 +45,7 @@
 			<h2>Login with SMU Email Account</h2>
 			<hr>
 		</header>
-		<form class="form-horizontal" role="form" method="POST" action="/login">
+		<form class="form-horizontal" role="form" method="POST" action="Authenticate">
 			<div class="row">
 				<div class="col-md-4"></div>
 				<div class="form-group">
@@ -55,7 +55,7 @@
 						<div class="input-group-addon" style="width: 2.6rem">
 							<i class="fa fa-envelope-o"></i>
 						</div>
-						<input type="text" name="userID" class="form-control" id="userID"
+						<input type="text" name="emailID" class="form-control" id="emailID"
 							placeholder="Insert your email" required autofocus size="34">
 					</div>
 				</div>
