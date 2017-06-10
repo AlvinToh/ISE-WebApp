@@ -25,15 +25,13 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 public class QRcode {
  
 	// Tutorial: http://zxing.github.io/zxing/apidocs/index.html
-	public static void main(String[] args){
-		boolean qr = generateQRcode("Hello World");
-	}
-	
+
 	public static boolean generateQRcode(String code){
 		
 		//What string to parse in for QR code and the logic behind it?
 		String myCodeText = code;
-		String filePath = "WebContent/images/TestQRCode.png";
+		//This filepath is fixed on my pc so may change accordingly
+		String filePath = "C:/Users/User/workspace/ISE-WebApp/WebContent/images/TestQRCode.png";
 		int size = 200;
 		String fileType = "png";
 		File myFile = new File(filePath);
@@ -66,10 +64,9 @@ public class QRcode {
 					}
 				}
 			}
-			if(ImageIO.write(image, fileType, myFile)){
-				System.out.println("QR code generation is successful");
-				return true;
-			}
+			
+			
+			ImageIO.write(image, fileType, myFile);
 			
 		} catch (WriterException e) {
 			e.printStackTrace();
