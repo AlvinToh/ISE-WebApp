@@ -40,8 +40,7 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-md-5"></div>
-				<input type="hidden" name="QRcode" value="QRcode">
-				<input class="btn btn-primary" type="submit" value="Generate your QR code">
+				<button type="submit" class="btn btn-primary" name="QRcode" value="QRcode">Generate your QR code</button>
 			</div>
 		</div>
 		</form>

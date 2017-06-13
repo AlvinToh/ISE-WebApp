@@ -32,9 +32,9 @@ public class QRgenerate extends HttpServlet {
 			throws ServletException, IOException {
 		String errorMsg = "";
 		String successMsg ="";
-		String go = request.getParameter("QRcode");
+		String qr = request.getParameter("QRcode");
 
-		if(go.equals("QRcode")){
+		if(qr.equals("QRcode")){
 			QRcode.generateQRcode("Hello World!");
 			successMsg = "QR Successful!";
 			RequestDispatcher rd = request.getRequestDispatcher("attendance.jsp");
