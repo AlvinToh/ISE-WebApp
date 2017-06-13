@@ -89,8 +89,8 @@
 		</form>
 	</div>
 
-<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-<script src="style/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="style/js/jquery-3.2.1.min.js"></script>
+<script src="style/js/bootstrap.min.js"></script>
 </body>
 </html>

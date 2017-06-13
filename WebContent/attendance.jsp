@@ -40,7 +40,7 @@
 		<div class="form-group">
 			<div class="row">
 				<div class="col-md-5"></div>
-				<input type="hidden" name="QRcode" value="goAhead">
+				<input type="hidden" name="QRcode" value="QRcode">
 				<input class="btn btn-primary" type="submit" value="Generate your QR code">
 			</div>
 		</div>
@@ -60,15 +60,8 @@
 		
 		request.removeAttribute("error");
 	%>
-	<!-- <div class="card card-outline-info mb-3 text-center">
-		<div class="card-block">
-			<h4 class="card-title">QR code valid for XX:minutes</h4>
-			<img src="images/TestQRCode.png" class="rounded mx-auto d-block"
-				alt="QR Code" width="25%">
-		</div>
-	</div> -->
 	
-	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 	<script src="style/js/jquery-3.2.1.min.js"></script>
 	<script src="style/js/bootstrap.min.js"></script>
 
