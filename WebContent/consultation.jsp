@@ -22,9 +22,12 @@
 			<a class="navbar-brand" href="home.jsp">IS102</a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item"><a class="nav-link" href="attendance.jsp">Attendance</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Preset Questions</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Request Form</a></li>
-				<li class="nav-item"><a class="nav-link" href="consultation.jsp">Consultation</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Preset
+						Questions</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Request
+						Form</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="consultation.jsp">Consultation</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Forum</a></li>
 				<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a></li>
@@ -32,9 +35,37 @@
 		</div>
 	</nav>
 
+	<style unselectable="on">
+#wrap {
+	width: 1000px;
+	height: 900px;
+	padding: 0;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+}
+
+#frame {
+	width: 1000px;
+	height: 900px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+
+#frame {
+	-ms-zoom: 0.7;
+}
+</style>
+	<div id="wrap" unselectable="on">
+		<iframe id="frame"
+			src="https://outlook.live.com/owa//calendar/97807ced-ea5e-4293-ad8c-4ed3bb235c8b/602cf2bc-ec86-4e30-b17d-c2fdda2aeb71/cid-6BC6524EE5D65C72/index.html"></iframe>
+	</div>
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-<script src="style/js/jquery-3.2.1.min.js"></script>
-<script src="style/js/bootstrap.min.js"></script>
+	<script src="style/js/jquery-3.2.1.min.js"></script>
+	<script src="style/js/bootstrap.min.js"></script>
 
 </body>
 </html>
