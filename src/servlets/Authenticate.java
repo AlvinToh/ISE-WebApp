@@ -35,12 +35,20 @@ public class Authenticate extends HttpServlet {
 
 		StudentDAO studentDAO = new StudentDAO();
 		Student student = studentDAO.retrieveStudent(emailID, password);
+		
+		ProfessorDAO professorDAO = new ProfessorDAO();
+		Professor professor = professorDAO.retrieveProfessor(emailID, password);
 
 		if (student != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", student);
 			response.sendRedirect("home.jsp");
 
+		} else if (professor != null){
+			HttpSession session = request.getSession();
+			session.setAttribute("user", professor);
+			response.sendRedirect("home.jsp");
+		
 		} else {
 			errorMsg = "Invalid username/password";
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
