@@ -8,14 +8,6 @@ import java.util.logging.*;
 
 public class StudentDAO {
 	//for debugging purpose
-	/**
-	public static void main(String[] args){
-		System.out.println("ssss");
-		StudentDAO sd = new StudentDAO();
-		Student s = sd.retrieveStudent("andy.aw.2014","Tele!@34");
-		System.out.println(s.getSmu_email_id());
-	}
-	*/
 	    private static final String TBLNAME = "student";
 	
     private void handleSQLException(SQLException ex, String sql, String... parameters) {

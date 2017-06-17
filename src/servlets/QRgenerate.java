@@ -35,8 +35,9 @@ public class QRgenerate extends HttpServlet {
 		String qr = request.getParameter("QRcode");
 
 		if(qr.equals("QRcode")){
-			QRcode.generateQRcode("Hello World!");
-			successMsg = "QR Successful!";
+			if(QRcode.generateQRcode("Hello World!")){
+				successMsg = "QR Successful!";
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("attendance.jsp");
 			request.setAttribute("success", successMsg);
 			rd.forward(request, response);

@@ -11,16 +11,7 @@ import entity.*;
 
 
 public class ProfessorDAO {
-	//for debugging purpose
-		/**
-		public static void main(String[] args){
-			System.out.println("ssss");
-			ProfessorDAO pd = new ProfessorDAO();
-			Professor p = pd.retrieveProfessor("btdai","65438721");
-			System.out.println(p.getProf_smu_email());
-		}
-		*/
-		    private static final String TBLNAME = "professor";
+		private static final String TBLNAME = "professor";
 		
 	    private void handleSQLException(SQLException ex, String sql, String... parameters) {
 	        String msg = "Unable to access data; SQL=" + sql + "\n";
