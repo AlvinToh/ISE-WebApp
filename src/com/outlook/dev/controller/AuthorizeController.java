@@ -1,5 +1,6 @@
 package com.outlook.dev.controller;
 
+import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpSession;
 import com.outlook.dev.auth.AuthHelper;
 import com.outlook.dev.auth.IdToken;
 import com.outlook.dev.auth.TokenResponse;
+import com.outlook.dev.service.OutlookService;
+import com.outlook.dev.service.OutlookServiceBuilder;
+import com.outlook.dev.service.OutlookUser;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +41,16 @@ public class AuthorizeController {
     	  session.setAttribute("accessToken", tokenResponse.getAccessToken());
     	  session.setAttribute("userConnected", true);
     	  session.setAttribute("userName", idTokenObj.getName());
+    	  session.setAttribute("tokens", tokenResponse);
+    	// Get user info
+    	  OutlookService outlookService = OutlookServiceBuilder.getOutlookService(tokenResponse.getAccessToken(), null);
+    	  OutlookUser user;
+    	  try {
+    	    user = outlookService.getCurrentUser().execute().body();
+    	    session.setAttribute("userEmail", user.getMail());
+    	  } catch (IOException e) {
+    	    session.setAttribute("error", e.getMessage());
+    	  }
     	  session.setAttribute("userTenantId", idTokenObj.getTenantId());
     	} else {
     	  session.setAttribute("error", "ID token failed validation.");
@@ -45,6 +59,7 @@ public class AuthorizeController {
     else {
       session.setAttribute("error", "Unexpected state returned from authority.");
     }
+    
     return "mail";
   }
   }
