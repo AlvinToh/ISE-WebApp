@@ -34,7 +34,11 @@
 	
 <%
 		String loginUrl = (String) session.getAttribute("loginUrl");
-		System.out.println("This is the LoginUrl" + loginUrl);
+		String userName = (String) session.getAttribute("userName");
+		String accessToken = (String) session.getAttribute("accessToken");
+		
+		System.out.println("This is Username:" + userName);
+		System.out.println("This is AccessToken:" + accessToken);
 %>
 	
 		<div class="row">
@@ -45,6 +49,7 @@
 					</button>
 				</a>
 		</div>
+		
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 <script src="style/js/jquery-3.2.1.min.js"></script>

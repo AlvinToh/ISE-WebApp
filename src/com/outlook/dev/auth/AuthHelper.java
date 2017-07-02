@@ -92,7 +92,7 @@ public class AuthHelper {
     }*/
 	  appId = "357f81d5-f13d-47bc-a625-d70ceb52252f";
 	  appPassword = "nJQaWpp6egHcs2RqhvkqFaQ";
-	  redirectUrl = "http://localhost:8080/ISE-WebApp/authorize.html";
+	  redirectUrl = "http://localhost:8080/ISE-WebApp/Outlookauthorize.html";
   }
 
   public static String getLoginUrl(UUID state, UUID nonce) {
