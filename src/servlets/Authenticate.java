@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.*;
+import java.util.UUID;
+
 import dao.*;
 import entity.*;
 
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.outlook.dev.auth.AuthHelper;
 
 /**
  * Servlet implementation class Authenticate
@@ -38,14 +42,24 @@ public class Authenticate extends HttpServlet {
 		
 		ProfessorDAO professorDAO = new ProfessorDAO();
 		Professor professor = professorDAO.retrieveProfessor(emailID, password);
+		
+    	UUID state = UUID.randomUUID();
+  	  	UUID nonce = UUID.randomUUID();
+  	  	
+  	  	// Save the state and nonce in the session so we can
+  	  	// verify after the auth process redirects back
+  	  	HttpSession session = request.getSession();
+  	  	session.setAttribute("expected_state", state);
+  	  	session.setAttribute("expected_nonce", nonce);
+  	  
+  	  	String loginUrl = AuthHelper.getLoginUrl(state, nonce);
+  	  	session.setAttribute("loginUrl", loginUrl);
 
 		if (student != null) {
-			HttpSession session = request.getSession();
 			session.setAttribute("user", student);
 			response.sendRedirect("home.jsp");
 
 		} else if (professor != null){
-			HttpSession session = request.getSession();
 			session.setAttribute("user", professor);
 			response.sendRedirect("home.jsp");
 		
