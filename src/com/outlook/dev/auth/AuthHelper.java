@@ -90,9 +90,9 @@ public class AuthHelper {
     else {
       throw new FileNotFoundException("Property file '" + authConfigFile + "' not found in the classpath.");
     }*/
-	  appId = "357f81d5-f13d-47bc-a625-d70ceb52252f";
-	  appPassword = "nJQaWpp6egHcs2RqhvkqFaQ";
-	  redirectUrl = "http://localhost:8080/ISE-WebApp/Outlookauthorize.html";
+	  appId = "2c59e4a6-604d-43bf-bda4-fce0b5e5c0cb";
+	  appPassword = "115PrdHYDwXa05D4h7ZW3HK";
+	  redirectUrl = "http://localhost:8080/ISE-WebApp/outlookauthorize.jsp";
   }
 
   public static String getLoginUrl(UUID state, UUID nonce) {

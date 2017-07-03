@@ -12,6 +12,9 @@
 
 </head>
 <body>
+<%
+		String loginUrl = (String) session.getAttribute("loginUrl");
+%>
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarTogglerDemo01"
@@ -27,7 +30,7 @@
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Preset Questions</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Request Form</a></li>
-				<li class="nav-item"><a class="nav-link" href="outlooklogin.jsp">Login Consultation</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=loginUrl%>">Login Consultation</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Forum</a></li>
 				<li class="nav-item"><a class="nav-link" href="logout.jsp">Logout</a></li>
