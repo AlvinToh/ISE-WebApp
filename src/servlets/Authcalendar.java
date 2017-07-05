@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -13,21 +14,23 @@ import javax.servlet.http.HttpSession;
 import com.outlook.dev.auth.AuthHelper;
 import com.outlook.dev.auth.IdToken;
 import com.outlook.dev.auth.TokenResponse;
+import com.outlook.dev.service.Event;
 import com.outlook.dev.service.OutlookService;
 import com.outlook.dev.service.OutlookServiceBuilder;
 import com.outlook.dev.service.OutlookUser;
+import com.outlook.dev.service.PagedResult;
 
 /**
- * Servlet implementation class Outlookauthorize
+ * Servlet implementation class Authcalendar
  */
-@WebServlet("/Outlookauthorize")
-public class Outlookauthorize extends HttpServlet {
+@WebServlet("/Authcalendar")
+public class Authcalendar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Outlookauthorize() {
+    public Authcalendar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,14 +45,16 @@ public class Outlookauthorize extends HttpServlet {
         UUID expectedState = (UUID) session.getAttribute("expected_state");
         String expectedStateS = expectedState.toString();
         UUID expectedNonce = (UUID) session.getAttribute("expected_nonce");
-        
+        TokenResponse tokenResponse = null;
+        IdToken idTokenObj = null;
+        String email = "";
 
         // Make sure that the state query parameter returned matches
         // the expected state
         if (state.equals(expectedState.toString())) {
-        	IdToken idTokenObj = IdToken.parseEncodedToken(idToken, expectedNonce.toString());
+        	idTokenObj = IdToken.parseEncodedToken(idToken, expectedNonce.toString());
         	if (idTokenObj != null) {
-        	  TokenResponse tokenResponse = AuthHelper.getTokenFromAuthCode(code, idTokenObj.getTenantId());
+        	  tokenResponse = AuthHelper.getTokenFromAuthCode(code, idTokenObj.getTenantId());
         	  session.setAttribute("accessToken", tokenResponse.getAccessToken());
         	  session.setAttribute("userConnected", true);
         	  session.setAttribute("userName", idTokenObj.getName());
@@ -60,6 +65,7 @@ public class Outlookauthorize extends HttpServlet {
         	  try {
         	    user = outlookService.getCurrentUser().execute().body();
         	    session.setAttribute("userEmail", user.getMail());
+        	    email = user.getMail();
         	  } catch (IOException e) {
         	    session.setAttribute("error", e.getMessage());
         	  }
@@ -71,7 +77,30 @@ public class Outlookauthorize extends HttpServlet {
         else {
           session.setAttribute("error", "Unexpected state returned from authority.");
         }
-        response.sendRedirect("outlookauthorize.jsp");
+        
+        String tenantId = idTokenObj.getTenantId();
+
+        OutlookService outlookService = OutlookServiceBuilder.getOutlookService(tokenResponse.getAccessToken(), email);
+
+        // Sort by start time in descending order
+        String sort = "start/dateTime DESC";
+        // Only return the properties we care about
+        String properties = "organizer,subject,start,end";
+        // Return at most 10 events
+        Integer maxResults = 10;
+
+        try {
+          PagedResult<Event> events = outlookService.getEvents(
+              sort, properties, maxResults)
+              .execute().body();
+          Event[] arrEvents = events.getValue();
+          System.out.println("This is events:"+ arrEvents);
+          session.setAttribute("events", arrEvents);
+        } catch (IOException e) {
+          session.setAttribute("error", e.getMessage());
+        }
+                
+        response.sendRedirect("authcalendar.jsp");
     }
     
 	/**

@@ -6,7 +6,6 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>*.html</url-pattern>
@@ -15,14 +14,12 @@
     <url-pattern>*.xml</url-pattern>
   </servlet-mapping>
   
-   <servlet>
-	<servlet-name>Outlookauthorize</servlet-name>
-	<servlet-class>src.servlets.Outlookauthorize</servlet-class>
+  <servlet>
+    <servlet-name>Authcalendar</servlet-name>
+    <servlet-class>src.servlets.Authcalendar</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-    <servlet-name>Outlookauthorize</servlet-name>
-    <url-pattern>/outlookauthorize</url-pattern>
+    <servlet-name>Authcalendar</servlet-name>
+    <url-pattern>/authcalendar</url-pattern>
   </servlet-mapping>
-  
 </web-app>

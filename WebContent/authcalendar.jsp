@@ -11,10 +11,11 @@
 
 </head>
 <body>
-<jsp:include page="/Outlookauthorize"/>
+<jsp:include page="/Authcalendar"/>
 <%
 		String loginUrl = (String) session.getAttribute("loginUrl");
 		String accessToken = (String) session.getAttribute("accessToken");
+		
 %>
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
