@@ -8,13 +8,17 @@
 
 <link rel="stylesheet" href="style/css/bootstrap.min.css">
 <link rel="stylesheet" href="style/css/font-awesome.min.css">
+<link rel="stylesheet" href="style/css/fullcalendar.css">
+<link rel="stylesheet" href="style/css/_materialFullCalendar.css">
+<script src="style/js/jquery-3.2.1.min.js"></script>
+<script src="style/js/moment.min.js"></script>
+<script src="style/js/fullcalendar.js"></script>
 
 </head>
 <body>
 <jsp:include page="/Authcalendar"/>
 <%
 		String loginUrl = (String) session.getAttribute("loginUrl");
-		String accessToken = (String) session.getAttribute("accessToken");
 		
 %>
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -37,15 +41,31 @@
 			</ul>
 		</div>
 	</nav>
-	
-	
-				<div style="width: 1200px; word-wrap:break-word;">
-					<h6>Access Token: <%=accessToken %></h6>
-				</div>
-		
+<script type="text/javascript">
+	$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    	$('#calendar').fullCalendar({
+    		editable: false, // Don't allow editing of events
+    		handleWindowResize: true,
+    		weekends: false, // Hide weekends
+    		defaultView: 'agendaWeek', // Only show week view
+    		header: false, // Hide buttons/titles
+    		minTime: '07:30:00', // Start time for the calendar
+    		maxTime: '22:00:00', // End time for the calendar
+    		columnFormat: {
+    		    week: 'ddd' // Only show day of the week names
+    		},
+    		displayEventTime: true // Display event time
+        	// put your options and callbacks here
+    	})
+
+	});
+</script>
+<div id="calendar"></div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-<script src="style/js/jquery-3.2.1.min.js"></script>
 <script src="style/js/bootstrap.min.js"></script>
 
 </body>
